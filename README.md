@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a class that represents a store. It has a private list of incidents, a method called incident_status and a crud's method to manipulate the incidents.
+This is a class that represents a store. It has a private list of incidents, a method called incident_status and a crud's methods to manipulate the incidents.
 
 ## Usage
 
