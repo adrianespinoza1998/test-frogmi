@@ -48,4 +48,44 @@ describe("Store", () => {
     expect(results.average_solution).toEqual(11);
     expect(results.maximun_solution).toEqual(12);
   });
+
+  it("should get the correct incident", () => {
+    expect(store.get_incident(0)).toEqual(testData[0]);
+  });
+
+  it("should return the correct incidents", () => {
+    expect(store.get_incidents()).toEqual(testData);
+  });
+
+  it("should add a new incident", () => {
+    const newIncident = {
+      description: "new incident",
+      status: "open",
+      open_date: new Date("2023-01-01"),
+    } as Incident;
+
+    store.add_incident(newIncident);
+
+    const lastIndicent = [...store.get_incidents()].pop();
+
+    expect(lastIndicent).toEqual(newIncident);
+  });
+
+  it("should remove an incident", () => {
+    store.remove_incident(0);
+
+    expect(store.get_incidents()).toEqual(testData.slice(1));
+  });
+
+  it("should update an incident", () => {
+    const newIncident = {
+      description: "new incident",
+      status: "open",
+      open_date: new Date("2023-04-01"),
+    } as Incident;
+
+    store.update_incident(0, newIncident);
+
+    expect(store.get_incident(0)).toEqual(newIncident);
+  });
 });

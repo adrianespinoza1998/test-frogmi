@@ -61,4 +61,24 @@ export class Store {
       maximun_solution,
     };
   }
+
+  get_incidents() {
+    return this.incidents;
+  }
+
+  add_incident(incident: Incident) {
+    this.incidents.push(incident);
+  }
+
+  remove_incident(index: number) {
+    this.incidents = this.incidents.filter((_, i) => i !== index);
+  }
+
+  update_incident(index: number, incident: Incident) {
+    this.incidents[index] = incident;
+  }
+
+  get_incident(index: number) {
+    return this.incidents[index];
+  }
 }
